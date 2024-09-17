@@ -4,9 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Node {
-    private String title;
+    private final String title;
     private Node parent;
-    private List<Node> children;
+    private final List<Node> children;
 
     // Construtor
     public Node(String title) {
@@ -40,10 +40,6 @@ public class Node {
         this.children.add(child);  // Adiciona o filho à lista de filhos
     }
 
-    // Verifica se o nó é uma folha (não tem filhos)
-    public boolean isLeaf() {
-        return children.isEmpty();
-    }
 
     public int getDepth() {
         int depth = 0;
