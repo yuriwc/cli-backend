@@ -19,11 +19,10 @@ public class JsonTreeBuilder {
             parent.addChild(childNode);
 
             // Se o valor for um objeto, continuar construindo a árvore
-            if (value instanceof JSONObject) {
-                JSONObject childObject = (JSONObject) value;
+            if (value instanceof JSONObject childObject) {
 
                 // Só continuar se o objeto não for vazio (tem filhos)
-                if (childObject.length() > 0) {
+                if (!childObject.isEmpty()) {
                     buildTree(childNode, childObject);
                 }
             }
