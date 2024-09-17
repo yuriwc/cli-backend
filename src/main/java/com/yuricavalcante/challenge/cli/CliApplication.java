@@ -16,6 +16,11 @@ import java.util.Map;
 public class CliApplication {
 
 	public static void main(String[] args) {
+		TreeAnalyzer analyzer = new TreeAnalyzer();  // Instância real de TreeAnalyzer
+		runApplication(args, analyzer);
+	}
+
+	public static void runApplication(String[] args, TreeAnalyzer treeAnalyzer) {
 		try {
 			// Parse dos argumentos
 			ArgumentParser parser = new ArgumentParser(args);
@@ -26,11 +31,10 @@ public class CliApplication {
 			Node tree = JsonTreeBuilder.buildFromJson(jsonString);
 			long loadTime = System.currentTimeMillis() - startTime;
 
-			// Analisar a árvore
+			// Analisar a árvore (usando o TreeAnalyzer injetado)
 			startTime = System.currentTimeMillis();
 			List<String> words = TextUtils.transformarTextoParaLista(parser.getText());
-			TreeAnalyzer analyzer = new TreeAnalyzer();
-			Map<String, Integer> wordCount = analyzer.analyzeTree(tree, words, parser.getDepth());
+			Map<String, Integer> wordCount = treeAnalyzer.analyzeTree(tree, words, parser.getDepth());
 			long checkTime = System.currentTimeMillis() - startTime;
 
 			// Exibir resultados
@@ -51,4 +55,5 @@ public class CliApplication {
 			System.out.println(e.getMessage());
 		}
 	}
+
 }
