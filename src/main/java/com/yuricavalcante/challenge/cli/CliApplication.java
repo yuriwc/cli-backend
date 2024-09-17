@@ -42,7 +42,7 @@ public class CliApplication {
 			String jsonString = new String(Files.readAllBytes(Paths.get("src/main/java/com/yuricavalcante/challenge/cli/dicts/arvore.json")));
 			transporte = JsonTreeBuilder.buildFromJson(jsonString);
 		} catch (IOException e) {
-			e.printStackTrace();
+			System.out.println("Erro ao carregar o arquivo JSON: " + e.getMessage());
 			System.exit(1);
 		}
 
