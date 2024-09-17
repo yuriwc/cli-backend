@@ -39,7 +39,7 @@ public class CliApplication {
 		Node transporte = null;
 		try {
 			// Lê o JSON do arquivo localizado em src/main/resources/transporte.json
-			String jsonString = new String(Files.readAllBytes(Paths.get("src/main/java/com.yuricavalcante.challenge.cli/dicts/arvore.json")));
+			String jsonString = new String(Files.readAllBytes(Paths.get("src/main/java/com/yuricavalcante/challenge/cli/dicts/arvore.json")));
 			transporte = JsonTreeBuilder.buildFromJson(jsonString);
 		} catch (IOException e) {
 			e.printStackTrace();
