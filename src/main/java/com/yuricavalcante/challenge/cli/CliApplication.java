@@ -42,7 +42,7 @@ public class CliApplication {
 			String jsonString = new String(Files.readAllBytes(Paths.get("src/main/java/com/yuricavalcante/challenge/cli/dicts/arvore.json")));
 			transporte = JsonTreeBuilder.buildFromJson(jsonString);
 		} catch (IOException e) {
-			e.printStackTrace();
+			System.out.println("Erro ao carregar o arquivo JSON: " + e.getMessage());
 			System.exit(1);
 		}
 
@@ -88,7 +88,10 @@ public class CliApplication {
 		long checkTime = endTime - startTime;
 
 		// Exibe o mapa com as contagens por nível
-		System.out.println("\n" + contadorPorNivel);
+		if (contadorPorNivel.isEmpty())
+			System.out.println("Na frase não existe nenhum filho do nível " + depth + " e nem o nível " + depth + " possui os termos especificados.");
+		else
+			System.out.println("\n" + contadorPorNivel);
 
 		// Exibe métricas se verbose for verdadeiro
 		if (verbose) {
