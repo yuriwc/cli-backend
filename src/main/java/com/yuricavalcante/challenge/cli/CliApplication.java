@@ -39,7 +39,7 @@ public class CliApplication {
 
 			// Exibir resultados
 			if (wordCount.isEmpty()) {
-				System.out.println("Nenhuma palavra encontrada no nível " + parser.getDepth());
+				System.out.println("Nenhuma palavra encontrada no nível " + parser.getDepth() + " e nem o nível " + (parser.getDepth()) + " possui os termos especificados.");
 			} else {
 				System.out.println(wordCount);
 			}
