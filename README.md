@@ -32,15 +32,21 @@ Para executar o projeto, você precisa ter instalado:
 Execute a CLI com o seguinte comando:
 
 ```bash
-java -jar cli.jar analyze --depth 5 "Eu tenho preferência por animais carnívoros"
+java -jar cli.jar analyze --depth 2 "Eu amo papagaios" --verbose
 ```
 Neste exemplo:
---depth 5 define a profundidade máxima da árvore.
-"Eu tenho preferência por animais carnívoros" é a frase a ser analisada.
+--depth 2 define a profundidade máxima da árvore.
+"Eu amo papagaios" é a frase a ser analisada.
 
 ### Exemplo de Saída
 ```
-output: Pássaros = 1; Primatas = 1;
+output: Aves = 1;
+```
+
+### Tempo de Execução --Verbose
+```
+Tempo de carregamento dos parâmetros 50ms.
+Tempo de verificação da frase 10ms
 ```
 
 
